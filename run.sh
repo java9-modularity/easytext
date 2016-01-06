@@ -1,2 +1,2 @@
 ./build.sh
-java -mp mods -m javamodularity.easytext.cli/javamodularity.easytext.cli.Main testinput.txt
+java -mp mods -m javamodularity.easytext.cli/javamodularity.easytext.cli.Main testinput2.txt
