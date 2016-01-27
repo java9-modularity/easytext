@@ -1,7 +1,5 @@
 package javamodularity.easytext.gui;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ServiceLoader;
 
 import javafx.application.Application;
@@ -18,6 +16,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import javamodularity.easytext.algorithm.api.Analyzer;
+import static javamodularity.easytext.algorithm.api.Preprocessing.toSentences;
  
 public class Main extends Application {
 
@@ -70,36 +69,11 @@ public class Main extends Application {
     private String analyze(String input, String algorithm) {
         for(Analyzer analyzer: analyzers) {
             if(analyzer.getName().equals(algorithm)) {
-                return algorithm + ": " + analyzer.analyze(preprocess(input));
+                return algorithm + ": " + analyzer.analyze(toSentences(input));
             }
         }
 
         return "No analyzer found for " + algorithm;
     }
 
-   public static List<List<String>> preprocess(String text) {
-      String removedBreaks = text.replaceAll("\\r?\\n", " ");
-      ArrayList<List<String>> sentences = new ArrayList<>();
-      for(String rawSentence: removedBreaks.split("[\\.\\?\\!]")) {
-         List<String> words = toWords(rawSentence);
-         if(words.size() > 0) {
-            sentences.add(words);
-         }
-      }
-      
-      return sentences;
-   }
-   
-   public static List<String> toWords(String sentence) {
-      String[] rawWords = sentence.split("\\s+");
-      List<String> words = new ArrayList<>();
-      for(String rawWord: rawWords) {
-         String word = rawWord.replaceAll("\\W", "");
-         if(word.length() > 0) {
-            words.add(word);
-         }
-      }
-      
-      return words;
-   }
 }
