@@ -21,7 +21,7 @@ import static javamodularity.easytext.algorithm.api.Preprocessing.toSentences;
 public class Main extends Application {
 
     private static Iterable<Analyzer> analyzers;
-    private static ComboBox algorithm;
+    private static ComboBox<String> algorithm;
     private static TextArea input;
     private static Text output;
 
@@ -35,19 +35,15 @@ public class Main extends Application {
         primaryStage.setTitle("EasyText");
         Button btn = new Button();
         btn.setText("Calculate");
-        btn.setOnAction(new EventHandler<ActionEvent>() {
- 
-            @Override
-            public void handle(ActionEvent event) {
-                output.setText(analyze(input.getText(), (String) algorithm.getValue()));
-            }
-        });
+        btn.setOnAction(event ->
+          output.setText(analyze(input.getText(), (String) algorithm.getValue()))
+        );
         
         VBox vbox = new VBox();
         vbox.setPadding(new Insets(3));
         vbox.setSpacing(3);
         Text title = new Text("Choose an algorithm:");
-        algorithm = new ComboBox();
+        algorithm = new ComboBox<>();
         for(Analyzer analyzer: analyzers) {
             algorithm.getItems().add(analyzer.getName());    
         }

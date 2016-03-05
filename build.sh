@@ -7,4 +7,4 @@ rsync -Rq $(find . -name *.png -o -name *.gif) ../mods
 cd -
 
 # Compile modules
-javac -mp lib -modulesourcepath src -d mods $(find src -name '*.java')
+javac -Xlint:unchecked -mp lib -modulesourcepath src -d mods $(find src -name '*.java')
