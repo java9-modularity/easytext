@@ -5,4 +5,6 @@ if [ -z "$1" ]
   else
     FILE=$1
 fi
-java -mp mods:lib -m javamodularity.easytext.cli/javamodularity.easytext.cli.Main $FILE
+
+java -mp mods:lib \
+     -m javamodularity.easytext.cli/javamodularity.easytext.cli.Main $FILE

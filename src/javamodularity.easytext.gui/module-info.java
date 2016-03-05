@@ -1,5 +1,6 @@
 module javamodularity.easytext.gui { 
-   exports javamodularity.easytext.gui to javafx.graphics; // Workaround for Application class usage
+   // JavaFX needs to instantiate our Main Application class
+   exports javamodularity.easytext.gui to javafx.graphics; 
 
    requires javafx.graphics;
    requires javafx.controls;
