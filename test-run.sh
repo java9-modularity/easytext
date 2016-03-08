@@ -10,5 +10,5 @@ java -Xpatch:mods-test \
      -XaddReads:javamodularity.easytext.algorithm.naivesyllablecounter=org.junit \
      -XaddExports:javamodularity.easytext.algorithm.naivesyllablecounter/javamodularity.easytext.algorithm.naivesyllablecounter=org.junit \
      -mp mods:lib-test \
-     -addmods javamodularity.easytext.algorithm.naivesyllablecounter,hamcrestcore \
+     -addmods javamodularity.easytext.algorithm.naivesyllablecounter,hamcrest.core \
      -m org.junit/org.junit.runner.JUnitCore javamodularity.easytext.algorithm.naivesyllablecounter.NaiveSyllableCounterTest
