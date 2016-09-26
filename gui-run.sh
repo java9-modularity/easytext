@@ -1,3 +1,3 @@
 ./build.sh
-java -mp mods:lib \
+java --module-path mods:lib \
      -m easytext.gui/javamodularity.easytext.gui.Main

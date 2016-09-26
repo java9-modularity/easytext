@@ -8,4 +8,4 @@ jar --create --file mods/jarred/easytext.algorithm.nextgensyllablecounter@1.0.ja
 jar --create --file mods/jarred/easytext.cli@1.0.jar --module-version=1.0 --main-class=javamodularity.easytext.cli.Main -C mods/easytext.cli .
 jar --create --file mods/jarred/easytext.gui@1.0.jar --module-version=1.0 --main-class=javamodularity.easytext.gui.Main -C mods/easytext.gui .
 
-java -mp mods/jarred:lib -m easytext.gui
+java --module-path mods/jarred:lib -m easytext.gui

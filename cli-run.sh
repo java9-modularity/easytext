@@ -6,5 +6,5 @@ if [ -z "$1" ]
     FILE=$1
 fi
 
-java -mp mods:lib \
+java --module-path mods:lib \
      -m easytext.cli/javamodularity.easytext.cli.Main $FILE
