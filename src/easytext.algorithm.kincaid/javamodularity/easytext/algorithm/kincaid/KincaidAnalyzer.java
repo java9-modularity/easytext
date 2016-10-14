@@ -19,16 +19,16 @@ public class KincaidAnalyzer implements Analyzer {
          throw new IllegalStateException("SyllableCounter not found");
       }
    }
-   
+
    public String getName() {
-      return "Flesh-Kincaid";
+      return "Flesch-Kincaid";
    }
 
    public double analyze(List<List<String>> sentences) {
       float totalsentences = sentences.size();
       float totalwords = sentences.stream().mapToInt(sentence -> sentence.size()).sum();
       float totalsyllables = sentences.stream()
-         .flatMapToInt(sentence -> 
+         .flatMapToInt(sentence ->
             sentence.stream().mapToInt(word -> syllableCounter.countSyllables(word)))
          .sum();
       return 206.835 - 1.015 * (totalwords / totalsentences) - 84.6 * (totalsyllables / totalwords);
