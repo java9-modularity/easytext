@@ -12,7 +12,7 @@ public class KincaidAnalyzer implements Analyzer {
    private SyllableCounter syllableCounter;
 
    public KincaidAnalyzer() {
-      Iterator<SyllableCounter> counters = ServiceLoader.load(SyllableCounter.class).iterator();
+      Iterator<SyllableCounter> counters = ServiceLoader.load(getClass().getModule().getLayer(), SyllableCounter.class).iterator();
       if(counters.hasNext()) {
          this.syllableCounter =  counters.next();
       } else {
